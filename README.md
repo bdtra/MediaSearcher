@@ -10,8 +10,12 @@ This project utilizes .Net Framework, C#, Razor and Linq for the Controllers and
   * API interface with Twitter via TweetInvi
   * Analysis Algorithm
   * Frequency Ascending/Descending
+  * Saved Searches
+  * User Registration
+  * Account Management
+  * User-Defined Sample Size
+  * Table Data Representation
 
 ### Future Features
   * Tag Cloud data representation
-  * Saved Searches
   * Search Comparison
