@@ -1,0 +1,13 @@
+﻿@model Dictionary<string, int>
+@{
+    ViewBag.Title = "Searches";
+}
+
+<h2>Searches</h2>
+<br />
+<br />
+
+@foreach (var search in Model)
+{
+    <h4><a href="/Search/Details/@search.Value">@search.Key</a></h4>
+}
