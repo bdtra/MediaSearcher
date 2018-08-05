@@ -25,11 +25,12 @@ namespace MediaSearcher.Controllers
         // GET: Search/Details/5
         public ActionResult Details(int id)
         {
+            var UserId = User.Identity.GetUserId();
             Dictionary<string, int> pairs = new Dictionary<string, int>();
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
                 conn.Open();
-                String sql = "SELECT * FROM AspNetSearch WHERE SearchId = '" + id + "' ORDER BY Value DESC;" ;
+                String sql = "SELECT * FROM AspNetSearch WHERE SearchId = '" + id + "' AND OwnerId = '" + UserId + "'  ORDER BY Value DESC;" ;
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
@@ -50,6 +51,12 @@ namespace MediaSearcher.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            var UserId = User.Identity.GetUserId();
+            if (UserId == null)
+            {
+                return Redirect("~/Account/Login");
+            }
+
             Auth.SetUserCredentials("7lYht3bDy2P9ji0SXLl66feKi",
                                     "k9hITdO7MmzeT57xTg75GrtneYjgwglXvoAawQ98XkPE21KMPB",
                                     "963967640753655809-ZMrjjJP4F7lxCR94DUetJkROY6f1gpx",

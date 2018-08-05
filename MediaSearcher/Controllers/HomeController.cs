@@ -20,6 +20,10 @@ namespace MediaSearcher.Controllers
         {
             ViewBag.Message = "Your application description page.";
             var UserId = User.Identity.GetUserId();
+            if (UserId == null)
+            {
+                return Redirect("~/Account/Login");
+            }
             Dictionary<string, int> Searches = new Dictionary<string, int>();
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
