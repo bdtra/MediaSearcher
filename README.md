@@ -9,7 +9,6 @@ This project utilizes .Net Framework, C#, Razor and Linq for the Controllers and
 ### Features
   * API interface with Twitter via TweetInvi
   * Analysis Algorithm
-  * Frequency Ascending/Descending
   * Saved Searches
   * User Registration
   * Account Management
@@ -17,5 +16,6 @@ This project utilizes .Net Framework, C#, Razor and Linq for the Controllers and
   * Table Data Representation
 
 ### Future Features
+  * Asc/Desc
   * Tag Cloud data representation
   * Search Comparison
